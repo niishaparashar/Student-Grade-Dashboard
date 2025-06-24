@@ -109,6 +109,4 @@ Charts powered by [Chart.js](https://www.chartjs.org/)
 
 ---
 
-## 📃 License
 
-MIT License – free to use and modify with attribution.
