@@ -30,7 +30,7 @@ A web-based dashboard built with Flask and Python that allows students to secure
 
 ```
 niishaparashar-student-grade-dashboard/
-├── app.py                  # Main Flask app
+├── dashb.py                  # Main Flask app
 ├── requirements.txt        # Project dependencies
 ├── students_grades.xlsx    # Excel file with student data
 └── README.md
