@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Grade Dashboard - {{ student_name }}</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #4B5EAA 0%, #8EA9E8 100%);
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .dashboard-page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+        .dashboard-container {
+            max-width: 1200px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        header {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px 0;
+        }
+        h1 {
+            color: #6B46C1;
+            margin-bottom: 20px;
+        }
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        h2 {
+            color: #6B46C1;
+            margin-bottom: 16px;
+        }
+        .grade-list {
+            list-style: none;
+            padding: 0;
+        }
+        .grade-list li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .grade-list li span:last-child {
+            color: #6B46C1;
+        }
+        #pie-chart, #bar-chart {
+            height: 200px;
+            width: 100;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-align: center;
+            color: #666;
+        }
+        @media (max-width: 900px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-page">
+        <div class="dashboard-container">
+            <header>
+                <form action="{{ url_for('logout') }}" method="POST">
+                    <button type="submit">Logout</button>
+                </form>
+            </header>
+            <main>
+                <h1>Grade Dashboard</h1>
+                <div class="dashboard-grid">
+                    <div class="card">
+                        <h2>Grades for {{ student_name }}</h2>
+                        <ul class="grade-list">
+                            {% for subject, grade in grades.items() %}
+                                <li><span>{{ subject }}</span><span>{{ grade }}%</span></li>
+                            {% endfor %}
+                        </ul>
+                        <p><strong>Average Grade:</strong> <span style="color: #6B46C1;">{{ average_grade }}%</span></p>
+                    </div>
+                    <div class="card">
+                        <h2>Grade Charts</h2>
+                        <div id="pie-chart"></div>
+                        <div id="bar-chart"></div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
