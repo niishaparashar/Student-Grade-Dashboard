@@ -33,14 +33,6 @@ niishaparashar-student-grade-dashboard/
 ├── app.py                  # Main Flask app
 ├── requirements.txt        # Project dependencies
 ├── students_grades.xlsx    # Excel file with student data
-├── templates/              # HTML templates
-│   ├── login.html
-│   └── dashboard.html
-├── static/                 # Static files (CSS, JS, images)
-│   ├── css/
-│   │   └── styles.css
-│   └── js/
-│       └── charts.js
 └── README.md
 ```
 
